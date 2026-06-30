@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #F4F1E3;
+      font-family: 'Raleway', sans-serif;
+      color: #2D3318;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #F4F1E3; }
+    ::-webkit-scrollbar-thumb { background: #7C883F; border-radius: 2px; }
+    a { transition: opacity 0.2s; }
+    a:hover { opacity: 0.65; }
+  </style>
+</helmet>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(244,241,227,0.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid #D3D2B5;">
+  <div style="max-width:1020px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:center;height:54px;">
+    <ul style="display:flex;gap:clamp(10px,2.5vw,30px);list-style:none;flex-wrap:wrap;justify-content:center;">
+      <li><a href="#inicio"     style="font-size:9px;letter-spacing:2px;color:#4C5334;text-decoration:none;font-weight:700;">INICIO</a></li>
+      <li><a href="#itinerario" style="font-size:9px;letter-spacing:2px;color:#4C5334;text-decoration:none;font-weight:700;">ITINERARIO</a></li>
+      <li><a href="#confirmar"  style="font-size:9px;letter-spacing:2px;color:#4C5334;text-decoration:none;font-weight:700;">CONFIRMAR ASISTENCIA</a></li>
+      <li><a href="#mesa"       style="font-size:9px;letter-spacing:2px;color:#4C5334;text-decoration:none;font-weight:700;">MESA DE REGALOS</a></li>
+      <li><a href="#galeria"    style="font-size:9px;letter-spacing:2px;color:#4C5334;text-decoration:none;font-weight:700;">GALERÍA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section id="inicio" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;background:#2D3318;">
+  <!-- Capa 1: fondo verde profundo con degradado sutil -->
+  <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 18%, #3E472A 0%, #2D3318 55%, #222814 100%);"></div>
+  <!-- Capa 2: textura botánica sutil en verde -->
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22220%22 height=%22220%22 viewBox=%220 0 220 220%22><g fill=%22none%22 stroke=%22%235C663A%22 stroke-width=%221.1%22 stroke-linecap=%22round%22 opacity=%220.55%22><path d=%22M40 200 C40 150 60 120 95 105%22/><path d=%22M55 165 C50 150 60 140 72 138%22/><path d=%22M52 150 C48 138 56 130 66 129%22/><path d=%22M62 178 C58 166 66 158 78 157%22/><path d=%22M180 20 C180 70 160 100 125 115%22/><path d=%22M165 55 C170 40 160 30 148 28%22/><path d=%22M168 70 C172 58 164 50 154 49%22/><path d=%22M158 42 C162 30 154 22 144 21%22/></g></svg>');background-size:300px 300px;"></div>
+  <!-- Capa 3: la fotografía completa (vertical, sin recorte) -->
+  <div style="position:absolute;inset:0;background:url('portada.jpg') center top/contain no-repeat;"></div>
+  <!-- Overlay: oscurece sutilmente abajo para legibilidad de los nombres -->
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,40,20,0.12) 0%,rgba(0,0,0,0) 45%,rgba(22,26,12,0.55) 100%);"></div>
+
+  <!-- Contenido: nombres en la parte inferior -->
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:100%;min-height:calc(100vh - 140px);padding-bottom:7vh;">
+    <!-- ornamento superior -->
+    <div style="display:flex;align-items:center;gap:14px;width:min(500px,82vw);margin-bottom:30px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#DBDCC0);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#DBDCC0"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#DBDCC0);"></div>
+    </div>
+
+    <!-- Nombres -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(58px,11vw,96px);font-weight:300;font-style:italic;line-height:1;color:#FBFAF0;letter-spacing:3px;text-shadow:0 2px 28px rgba(0,0,0,0.6);">Laura</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,40px);font-weight:300;letter-spacing:14px;color:#DBDCC0;margin:8px 0 10px;text-shadow:0 2px 18px rgba(0,0,0,0.6);">&amp;</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(58px,11vw,96px);font-weight:300;font-style:italic;line-height:1;color:#FBFAF0;letter-spacing:3px;text-shadow:0 2px 28px rgba(0,0,0,0.6);">Ricardo</div>
+
+    <!-- ornamento inferior -->
+    <div style="display:flex;align-items:center;gap:14px;width:min(500px,82vw);margin-top:30px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#DBDCC0);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#DBDCC0"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#DBDCC0);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ SEPARADOR NEUTRAL ═══════════════════════════ -->
+<div style="background:#E7E2CC;padding:22px 24px;display:flex;align-items:center;justify-content:center;gap:16px;">
+  <div style="height:1px;width:min(120px,22vw);background:linear-gradient(to right,transparent,#A7AD80);"></div>
+  <svg width="10" height="10" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+  <div style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:4px;color:#7E8661;">Nos casamos</div>
+  <svg width="10" height="10" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+  <div style="height:1px;width:min(120px,22vw);background:linear-gradient(to left,transparent,#A7AD80);"></div>
+</div>
+
+<!-- ═══════════════════════════ FECHA + CONTADOR ═══════════════════════════ -->
+<section style="position:relative;overflow:hidden;padding:96px 24px;text-align:center;background:#2D3318;">
+  <!-- Fondo: hacienda -->
+  <div style="position:absolute;inset:0;background:url('hacienda.jpg') center/cover no-repeat;"></div>
+  <!-- Velo cálido para legibilidad -->
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,34,16,0.62) 0%,rgba(30,36,16,0.48) 50%,rgba(24,28,12,0.66) 100%);"></div>
+
+  <div style="position:relative;z-index:1;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,5vw,30px);letter-spacing:6px;color:#FBFAF0;margin-bottom:8px;text-shadow:0 2px 18px rgba(0,0,0,0.5);">10 DE OCTUBRE DE 2026</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,4vw,24px);font-style:italic;color:#FBFAF0;margin-bottom:4px;text-shadow:0 2px 16px rgba(0,0,0,0.5);">Rancho El Saucito</div>
+    <div style="font-size:10px;letter-spacing:4px;color:#DBDCC0;margin-bottom:40px;font-weight:700;">FRESNILLO · ZACATECAS</div>
+
+    <div style="display:flex;align-items:center;gap:14px;width:min(440px,78vw);margin:0 auto 44px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#DBDCC0);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#DBDCC0"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#DBDCC0);"></div>
+    </div>
+
+    <sc-if value="{{ eventPassed }}" hint-placeholder-val="{{ false }}">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:#DBDCC0;letter-spacing:2px;">¡El gran día ha llegado!</div>
+    </sc-if>
+    <sc-if value="{{ showCountdown }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:flex-start;justify-content:center;gap:clamp(14px,4vw,32px);">
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,9vw,62px);font-weight:300;color:#FBFAF0;line-height:1;min-width:2ch;text-shadow:0 2px 18px rgba(0,0,0,0.55);">{{ days }}</div>
+          <div style="font-size:8px;letter-spacing:2px;color:#C0C79B;margin-top:8px;font-weight:600;">DÍA(S)</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,7vw,52px);font-weight:300;color:#DBDCC0;line-height:1;padding-top:3px;">:</div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,9vw,62px);font-weight:300;color:#FBFAF0;line-height:1;min-width:2ch;text-shadow:0 2px 18px rgba(0,0,0,0.55);">{{ hours }}</div>
+          <div style="font-size:8px;letter-spacing:2px;color:#C0C79B;margin-top:8px;font-weight:600;">HORA(S)</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,7vw,52px);font-weight:300;color:#DBDCC0;line-height:1;padding-top:3px;">:</div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,9vw,62px);font-weight:300;color:#FBFAF0;line-height:1;min-width:2ch;text-shadow:0 2px 18px rgba(0,0,0,0.55);">{{ minutes }}</div>
+          <div style="font-size:8px;letter-spacing:2px;color:#C0C79B;margin-top:8px;font-weight:600;">MINUTO(S)</div>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,7vw,52px);font-weight:300;color:#DBDCC0;line-height:1;padding-top:3px;">:</div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,9vw,62px);font-weight:300;color:#FBFAF0;line-height:1;min-width:2ch;text-shadow:0 2px 18px rgba(0,0,0,0.55);">{{ seconds }}</div>
+          <div style="font-size:8px;letter-spacing:2px;color:#C0C79B;margin-top:8px;font-weight:600;">SEGUNDO(S)</div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PADRES ═══════════════════════════ -->
+<section style="background:#E7E2CC;padding:80px 24px;text-align:center;">
+  <div style="max-width:720px;margin:0 auto;">
+    <div style="font-size:10px;letter-spacing:4px;color:#7C883F;margin-bottom:36px;font-weight:700;">EN COMPAÑÍA DE NUESTROS PADRES</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:52px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,6vw,64px);">
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;color:#7C883F;margin-bottom:22px;font-weight:700;">PADRES DE LA NOVIA</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#2D3318;line-height:1.9;font-style:italic;">Laura Patricia Becerra Chiw<br>Adrián Sandoval Pérez</div>
+      </div>
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;color:#7C883F;margin-bottom:22px;font-weight:700;">PADRES DEL NOVIO</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#2D3318;line-height:1.9;font-style:italic;">Marcela Carrera Correa<br>Ricardo Javier Venecia Medina</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ ITINERARIO ═══════════════════════════ -->
+<section id="itinerario" style="padding:80px 24px;text-align:center;background:#F4F1E3;">
+  <div style="max-width:880px;margin:0 auto;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,36px);font-weight:300;letter-spacing:8px;color:#2D3318;margin-bottom:16px;">ITINERARIO</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:60px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+
+      <!-- Ceremonia -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 20px;background:#fff;border:1px solid #D3D2B5;">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#7C883F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="28" y1="2" x2="28" y2="10"/>
+          <line x1="24" y1="6" x2="32" y2="6"/>
+          <rect x="18" y="10" width="20" height="10"/>
+          <polygon points="28,20 8,36 48,36"/>
+          <rect x="16" y="36" width="24" height="18"/>
+          <rect x="23" y="44" width="10" height="10"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:3px;color:#7C883F;font-weight:700;">CEREMONIA RELIGIOSA</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#2D3318;line-height:1.7;font-style:italic;">Capilla del Saucito</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#4C5334;font-weight:500;">2:00 PM</div>
+      </div>
+
+      <!-- Recepción -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 20px;background:#fff;border:1px solid #D3D2B5;">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#7C883F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="24" width="44" height="28"/>
+          <polygon points="28,6 2,24 54,24"/>
+          <rect x="14" y="30" width="10" height="10"/>
+          <rect x="32" y="30" width="10" height="10"/>
+          <rect x="23" y="36" width="10" height="16"/>
+          <line x1="6" y1="24" x2="50" y2="24"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:3px;color:#7C883F;font-weight:700;">RECEPCIÓN</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#2D3318;line-height:1.7;font-style:italic;">Rancho El Saucito<br>Fresnillo, Zacatecas</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#4C5334;font-weight:500;">4:00 PM</div>
+      </div>
+
+      <!-- Party -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 20px;background:#fff;border:1px solid #D3D2B5;">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#7C883F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 42 Q20 24 34 20 L38 10 L42 12 L38 22 Q50 26 46 42"/>
+          <ellipse cx="16" cy="44" rx="8" ry="4"/>
+          <ellipse cx="42" cy="44" rx="8" ry="4"/>
+          <line x1="28" y1="30" x2="22" y2="38"/>
+          <line x1="34" y1="28" x2="30" y2="36"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:3px;color:#7C883F;font-weight:700;">PARTY &amp; DANCING</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#2D3318;line-height:1.7;font-style:italic;">Rancho El Saucito<br>Fresnillo, Zacatecas</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#4C5334;font-weight:500;">8:00 PM</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:48px;">
+      <a href="https://maps.app.goo.gl/gnrwHg7hVyaRu5Lt7?g_st=ic" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:14px 40px;border:1px solid #7C883F;font-size:9px;letter-spacing:3px;color:#7C883F;text-decoration:none;font-weight:700;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C883F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>VER UBICACIÓN EN MAPA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GALERÍA ═══════════════════════════ -->
+<section id="galeria" style="padding:80px 24px;background:#E7E2CC;text-align:center;">
+  <div style="max-width:820px;margin:0 auto;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,36px);font-weight:300;letter-spacing:8px;color:#2D3318;margin-bottom:16px;">GALERÍA</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:48px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+      <div style="aspect-ratio:3/4;background:url('galeria/foto2.jpg') center/cover no-repeat;"></div>
+      <div style="aspect-ratio:3/4;background:url('galeria/foto1.jpg') center/cover no-repeat;"></div>
+      <div style="aspect-ratio:3/4;background:url('galeria/foto3.jpg') center/cover no-repeat;"></div>
+    </div>
+    <div style="aspect-ratio:16/10;background:url('galeria/foto4.jpg') center/cover no-repeat;margin-top:10px;"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ NO NIÑOS ═══════════════════════════ -->
+<section style="padding:80px 24px;text-align:center;background:#F4F1E3;">
+  <div style="max-width:480px;margin:0 auto;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:36px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,28px);letter-spacing:4px;color:#2D3318;margin-bottom:22px;font-weight:500;">NO NIÑOS</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#4C5334;line-height:2;font-style:italic;">
+      Amamos a sus pequeños,<br>hagan de este día una cita<br>y pasémosla increíble.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MESA DE REGALOS ═══════════════════════════ -->
+<section id="mesa" style="padding:80px 24px;text-align:center;background:#E7E2CC;">
+  <div style="max-width:680px;margin:0 auto;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,36px);font-weight:300;letter-spacing:8px;color:#2D3318;margin-bottom:16px;">MESA DE REGALOS</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:32px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#4C5334;line-height:2;font-style:italic;margin-bottom:52px;">
+      Su presencia y compañía siempre<br>será nuestro mejor regalo.<br>Si desean obsequiarnos algo más,<br>pueden hacerlo a través de:
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+
+      <!-- Liverpool -->
+      <div style="background:#fff;border:1px solid #D3D2B5;padding:40px 28px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;letter-spacing:4px;color:#2D3318;">LIVERPOOL</div>
+        <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51989462" target="_blank" style="font-size:9px;letter-spacing:2px;color:#7C883F;text-decoration:none;border:1px solid #7C883F;padding:12px 32px;font-weight:700;">IR A MESA</a>
+        <div style="font-size:11px;letter-spacing:1px;color:#4C5334;font-weight:600;">No. de Evento: <span style="color:#7C883F;font-weight:700;">51989462</span></div>
+      </div>
+
+      <!-- Amazon -->
+      <div style="background:#fff;border:1px solid #D3D2B5;padding:40px 28px;display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;letter-spacing:4px;color:#2D3318;">AMAZON</div>
+        <a href="https://www.amazon.com.mx/wedding/guest-view/2QHVUTL5EJJF1" target="_blank" style="font-size:9px;letter-spacing:2px;color:#7C883F;text-decoration:none;border:1px solid #7C883F;padding:12px 32px;font-weight:700;">IR A MESA</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ DRESS CODE ═══════════════════════════ -->
+<section style="padding:80px 24px;text-align:center;background:#2D3318;">
+  <div style="max-width:520px;margin:0 auto;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,5vw,36px);font-weight:300;letter-spacing:8px;color:#F4F1E3;margin-bottom:16px;">DRESS CODE</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:36px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,38px);letter-spacing:10px;color:#7C883F;margin-bottom:36px;font-weight:300;">FORMAL</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4.5vw,28px);color:#E9E3CD;line-height:2;font-style:italic;">
+      <span style="font-style:normal;font-weight:500;color:#7C883F;">Mujeres:</span> Vestido Largo de Noche<br>
+      <span style="font-style:normal;font-weight:500;color:#7C883F;">Hombres:</span> Traje Completo Formal
+    </div>
+    <div style="margin-top:36px;padding:18px 32px;border:1px solid rgba(184,150,90,0.4);display:inline-block;">
+      <div style="font-size:9px;letter-spacing:3px;color:#7C883F;font-weight:700;margin-bottom:8px;">POR FAVOR EVITAR</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,24px);color:#E9E3CD;font-style:italic;">Prendas en color verde</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FRASE ═══════════════════════════ -->
+<section style="padding:0;text-align:center;background:#F4F1E3;">
+  <div style="position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:url('foto-frase.jpg') center/cover no-repeat;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,26,14,0.18) 0%,rgba(24,26,14,0.1) 45%,rgba(24,26,14,0.55) 100%);"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 24px 11%;">
+      <div style="display:flex;align-items:center;gap:14px;width:min(360px,64vw);margin-bottom:24px;">
+        <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#DBDCC0);"></div>
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="#DBDCC0"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+        <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#DBDCC0);"></div>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,5vw,30px);font-style:italic;color:#FBFAF0;line-height:1.7;text-shadow:0 2px 22px rgba(0,0,0,0.6);">
+        Con todo mi amor,<br>para toda la vida.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CONFIRMAR ASISTENCIA ═══════════════════════════ -->
+<section id="confirmar" style="padding:80px 24px;text-align:center;background:#E7E2CC;">
+  <div style="max-width:520px;margin:0 auto;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,5vw,34px);font-weight:300;letter-spacing:6px;color:#2D3318;margin-bottom:16px;">CONFIRMAR ASISTENCIA</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
+      <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+      <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+    </div>
+    <div style="border:1px solid #C7CDA4;background:#E7E2CC;padding:24px 32px;margin-bottom:44px;max-width:420px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,4vw,22px);font-style:italic;color:#2D3318;line-height:1.8;">Confirma por favor tu asistencia antes del <span style="font-weight:600;font-style:normal;">02 de Septiembre</span> para tener todo listo.</div>
+    </div>
+
+    <!-- Botón WhatsApp — reemplaza el número (521XXXXXXXXXX) con el tuyo -->
+    <a href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Laura%20%26%20Ricardo%20el%2010%20de%20Octubre%20de%202026%20%F0%9F%A4%8D" target="_blank" style="display:inline-flex;align-items:center;gap:12px;padding:16px 44px;background:#4C5334;color:#E7E2CC;text-decoration:none;font-size:9px;letter-spacing:3px;font-weight:700;font-family:'Raleway',sans-serif;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#C7CDA4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.524 5.828L.057 23.804a.75.75 0 0 0 .92.92l5.946-1.467A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.722 9.722 0 0 1-4.964-1.362l-.356-.212-3.688.91.927-3.59-.232-.372A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      CONFIRMAR POR WHATSAPP
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer style="background:#2D3318;padding:56px 24px;text-align:center;">
+  <div style="display:flex;align-items:center;gap:14px;width:min(380px,70vw);margin:0 auto 28px;">
+    <div style="height:1px;flex:1;background:linear-gradient(to right,transparent,#7C883F);"></div>
+    <svg width="13" height="13" viewBox="0 0 14 14" fill="#7C883F"><path d="M7 0l1.2 5.8L14 7l-5.8 1.2L7 14l-1.2-5.8L0 7l5.8-1.2z"/></svg>
+    <div style="height:1px;flex:1;background:linear-gradient(to left,transparent,#7C883F);"></div>
+  </div>
+  <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,28px);font-style:italic;letter-spacing:3px;color:#F4F1E3;margin-bottom:10px;">| Laura &amp; Ricardo |</div>
+  <div style="font-size:9px;letter-spacing:5px;color:#DBDCC0;margin-bottom:36px;">10 · OCTUBRE · 2026</div>
+  <div style="font-size:9px;letter-spacing:1px;color:#4A3A2E;">Copyright 2026. Todos los Derechos Reservados.</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 390 }
+}">
+class Component extends DCLogic {
+  state = {
+    days: '00', hours: '00', minutes: '00', seconds: '00',
+    eventPassed: false,
+    rsvpAttending: '',
+    guests: '',
+    rsvpSubmitted: false,
+  };
+
+  componentDidMount() {
+    this.updateCountdown();
+    this._timer = setInterval(() => this.updateCountdown(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._timer);
+  }
+
+  updateCountdown() {
+    const target = new Date('2026-10-10T14:00:00');
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      clearInterval(this._timer);
+      this.setState({ eventPassed: true, days: '00', hours: '00', minutes: '00', seconds: '00' });
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    this.setState({
+      eventPassed: false,
+      days:    String(d).padStart(2, '0'),
+      hours:   String(h).padStart(2, '0'),
+      minutes: String(m).padStart(2, '0'),
+      seconds: String(s).padStart(2, '0'),
+    });
+  }
+
+  renderVals() {
+    const { days, hours, minutes, seconds, eventPassed, rsvpSubmitted } = this.state;
+    return {
+      days, hours, minutes, seconds,
+      eventPassed,
+      showCountdown: !eventPassed,
+      rsvpSubmitted,
+      showForm: !rsvpSubmitted,
+      handleRsvpChange:  (e) => this.setState({ rsvpAttending: e.target.value }),
+      handleGuestsChange:(e) => this.setState({ guests: e.target.value }),
+      submitRsvp: (e) => {
+        e.preventDefault();
+        this.setState({ rsvpSubmitted: true });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
